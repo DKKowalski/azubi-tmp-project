@@ -8,9 +8,9 @@ import { Product } from "@/types";
 export default async function ProductPage({
   params,
 }: {
-  params: { product: string };
+  params: Promise<{ product: string }>;
 }) {
-  const { product: productSlug } = params;
+  const { product: productSlug } = await params;
 
   // Read the data.json file
   const jsonPath = path.join(
@@ -96,6 +96,62 @@ export default async function ProductPage({
               </li>
             ))}
           </ul>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-5 gap-8 mt-32">
+        <div className="col-span-2 space-y-8">
+          <div className="relative h-[280px] rounded-lg overflow-hidden">
+            <Image
+              src={product.gallery.first.desktop.replace("./", "/")}
+              alt={`${product.name} gallery image 1`}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="relative h-[280px] rounded-lg overflow-hidden">
+            <Image
+              src={product.gallery.second.desktop.replace("./", "/")}
+              alt={`${product.name} gallery image 2`}
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+        <div className="col-span-3 relative h-full rounded-lg overflow-hidden">
+          <Image
+            src={product.gallery.third.desktop.replace("./", "/")}
+            alt={`${product.name} gallery image 3`}
+            fill
+            className="object-cover"
+          />
+        </div>
+      </div>
+
+      <div className="mt-32 text-center">
+        <h3 className="text-4xl font-bold uppercase mb-16">
+          You May Also Like
+        </h3>
+        <div className="flex justify-between items-center gap-8">
+          {product.others.map((other, index) => (
+            <div key={index} className="flex flex-col items-center gap-8 w-4/12">
+              <div className="relative w-full h-[320px] rounded-lg overflow-hidden">
+                <Image
+                  src={other.image.desktop.replace("./", "/")}
+                  alt={other.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <h4 className="text-3xl font-bold uppercase">{other.name}</h4>
+              <Link
+                className="uppercase font-bold text-sm tracking-widest bg-secondary px-8 py-3 text-white"
+                href={`/product/${other.slug}`}
+              >
+                See Product
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </div>

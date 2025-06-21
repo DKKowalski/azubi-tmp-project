@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -22,18 +24,25 @@ const cartItems = [
   },
 ];
 
-export default function Cart() {
+interface CartModalProps {
+  onClose: () => void;
+}
+
+export default function CartModal({ onClose }: CartModalProps) {
   const total = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
 
   return (
-    <div className="max-w-screen-xl mx-auto py-8 px-6">
-      <Link href="/" className="text-gray-500 mb-8 block">
-        Go Back
-      </Link>
-      <div className="bg-white p-8 rounded-lg shadow-lg">
+    <div
+      className="fixed inset-0 bg-black/50 z-50 flex justify-end"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md mt-24 mx-6 h-fit"
+        onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside
+      >
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold uppercase">
             Cart ({cartItems.length})

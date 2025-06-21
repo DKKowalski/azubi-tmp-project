@@ -15,7 +15,7 @@ export default function Home() {
         <div className="max-w-screen-xl mx-auto">
           <Navbar />
 
-          <div className="flex flex-col gap-4 max-w-screen-xl mx-auto text-white md:flex-row pt-8 items-center justify-center ">
+          <div className="flex flex-col gap-4 max-w-screen-xl mx-auto text-white md:flex-row pt-8 items-center justify-center border-t border-white/10">
             <div className="w-1/2">
               <h1 className="text-lg uppercase tracking-widest mb-8">
                 New Product

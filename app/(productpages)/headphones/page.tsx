@@ -1,8 +1,5 @@
 import React from "react";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import CategoryLinks from "@/components/CategoryLinks";
-import BestGear from "@/components/BestGear";
+
 import ProductCard from "@/components/ProductCard";
 
 const headphonesData = [
@@ -43,35 +40,25 @@ const headphonesData = [
 const HeadphonesPage = () => {
   return (
     <>
-      <header className="bg-[#0e0e0e] py-8 px-6 mb-16">
-        <div className="max-w-screen-xl mx-auto ">
-          <Navbar />
-          <h1 className="text-white text-4xl text-center font-bold uppercase tracking-widest py-16">
-            Headphones
-          </h1>
-        </div>
-      </header>
-      <main>
-        <section className="max-w-screen-xl mx-auto py-16 space-y-32">
-          {headphonesData.map((product, index) => (
-            <ProductCard
-              key={index}
-              imageSrc={product.imageSrc}
-              altText={product.altText}
-              isNew={product.isNew}
-              name={product.name}
-              description={product.description}
-              productLink={product.productLink}
-              reverseLayout={product.reverseLayout}
-            />
-          ))}
-        </section>
-
-        <CategoryLinks />
-
-        <BestGear />
-      </main>
-      <Footer />
+      <div className="bg-[#0e0e0e] -mt-16">
+        <h1 className="text-white text-4xl text-center font-bold uppercase tracking-widest py-16 border-t border-white/10 max-w-screen-xl mx-auto">
+          Headphones
+        </h1>
+      </div>
+      <section className="max-w-screen-xl mx-auto py-16 space-y-32">
+        {headphonesData.map((product, index) => (
+          <ProductCard
+            key={index}
+            imageSrc={product.imageSrc}
+            altText={product.altText}
+            isNew={product.isNew}
+            name={product.name}
+            description={product.description}
+            productLink={product.productLink}
+            reverseLayout={product.reverseLayout}
+          />
+        ))}
+      </section>
     </>
   );
 };

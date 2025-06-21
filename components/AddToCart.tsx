@@ -30,21 +30,21 @@ export default function AddToCart({ product }: AddToCartProps) {
       <div className="flex items-center bg-gray-100">
         <button
           onClick={decreaseQuantity}
-          className="px-4 py-3 hover:bg-gray-200 text-black/50"
+          className="px-4 py-3 hover:bg-gray-200 text-black/50 cursor-pointer hover:text-secondary transition-colors duration-300"
         >
           -
         </button>
         <span className="px-4 py-3 font-bold">{quantity}</span>
         <button
           onClick={increaseQuantity}
-          className="px-4 py-3 hover:bg-gray-200 text-black/50"
+          className="px-4 py-3 hover:bg-gray-200 text-black/50 cursor-pointer hover:text-secondary transition-colors duration-300"
         >
           +
         </button>
       </div>
       <button
         onClick={handleAddToCart}
-        className="uppercase font-bold text-sm tracking-widest bg-secondary px-8 py-3 text-white hover:bg-light-orange"
+        className="uppercase font-bold text-sm tracking-widest bg-secondary px-8 py-3 text-white hover:bg-[#FBAF85] transition-colors duration-300 cursor-pointer"
       >
         Add to Cart
       </button>

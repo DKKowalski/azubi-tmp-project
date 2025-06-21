@@ -15,7 +15,7 @@ export default function CheckoutSummary() {
   const grandTotal = subtotal + shipping;
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-lg w-1/3">
+    <div className="bg-white p-8 rounded-lg shadow-lg w-full lg:w-1/3">
       <h2 className="text-xl font-bold uppercase mb-8">Summary</h2>
       <div className="space-y-4">
         {cartItems.map((item) => (
@@ -66,7 +66,7 @@ export default function CheckoutSummary() {
       <button
         type="submit"
         form="checkout-form"
-        className="block w-full mt-8 text-center uppercase font-bold text-sm tracking-widest bg-secondary px-8 py-3 text-white cursor-pointer"
+        className="block w-full mt-8 text-center uppercase font-bold text-sm tracking-widest bg-secondary px-8 py-3 text-white cursor-pointer hover:bg-[#FBAF85] transition-colors duration-300"
       >
         Continue & Pay
       </button>

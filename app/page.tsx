@@ -15,26 +15,26 @@ export default function Home() {
         <div className="max-w-screen-xl mx-auto">
           <Navbar />
 
-          <div className="flex flex-col gap-4 max-w-screen-xl mx-auto text-white md:flex-row pt-8 items-center justify-center border-t border-white/10">
-            <div className="w-1/2">
-              <h1 className="text-lg uppercase tracking-widest mb-8">
+          <div className="relative flex flex-col max-w-screen-xl mx-auto text-white lg:flex-row pt-8 border-t border-white/10">
+            <div className="w-full lg:w-1/2 absolute top-1/2 -translate-y-1/2 left-0 lg:relative z-10 flex flex-col items-center lg:items-start justify-center text-center lg:text-left px-4 lg:px-0">
+              <h1 className="text-sm md:text-lg uppercase tracking-widest mb-4 md:mb-8">
                 New Product
               </h1>
-              <h2 className="text-7xl font-bold mb-8">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 max-w-md">
                 XX99 Mark II Headphones
               </h2>
-              <p className="mb-16 max-w-md">
+              <p className="mb-8 md:mb-16 max-w-sm md:max-w-md opacity-75">
                 Experience natural, lifelike audio and exceptional build quality
                 made for the passionate music enthusiast.
               </p>
               <Link
-                className="uppercase font-bold text-sm tracking-widest bg-[#d87d4a] px-4 py-3"
-                href="/"
+                className="uppercase font-bold text-sm tracking-widest bg-secondary px-8 py-4 hover:bg-[#FBAF85] transition-colors duration-300"
+                href="/product/xx99-mark-two-headphones"
               >
                 See Product
               </Link>
             </div>
-            <div className="relative w-1/2 h-[600px] ">
+            <div className="relative w-full md:w-1/2 h-[400px] md:h-[600px] ">
               <Image
                 src="/assets/home/desktop/image-hero.png"
                 alt="hero"

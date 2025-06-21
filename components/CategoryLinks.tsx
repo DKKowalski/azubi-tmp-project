@@ -21,11 +21,11 @@ const categoryData = [
 
 const CategoryLinks = () => {
   return (
-    <section className="py-16 max-w-screen-xl mx-auto flex flex-row items-end gap-8 mt-16 ">
+    <section className="py-16 max-w-screen-xl mx-4 md:mx-auto flex flex-col items-center justify-center md:flex-row md:items-end gap-8 mt-16 px-4">
       {categoryData.map((item, index) => (
         <div
           key={index}
-          className=" relative  w-4/12 flex flex-col gap-4 justify-center"
+          className=" relative  w-full md:w-4/12 flex flex-col gap-4 justify-center"
         >
           <Image
             src={item.image}
@@ -38,7 +38,10 @@ const CategoryLinks = () => {
             <h2 className="text-xl font-bold uppercase tracking-widest">
               {item.title}
             </h2>
-            <Link href={item.link} className="flex items-center gap-2">
+            <Link
+              href={item.link}
+              className="flex items-center gap-2 hover:text-secondary transition-colors duration-300"
+            >
               <span className="uppercase font-bold text-sm tracking-widest">
                 Shop
               </span>

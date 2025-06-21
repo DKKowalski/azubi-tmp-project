@@ -36,13 +36,13 @@ export default async function ProductPage({
   const desktopImage = product.image.desktop.replace("./", "/");
 
   return (
-    <div className="max-w-screen-xl mx-auto py-8 px-6">
+    <div className="max-w-screen-xl mx-auto py-4 px-4">
       <Link href="/" className="text-gray-500 mb-8 block">
         Go Back
       </Link>
 
-      <div className="flex items-center justify-between gap-16">
-        <div className="relative w-1/2 h-[600px] rounded-lg overflow-hidden">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
+        <div className="relative w-full lg:w-1/2 h-80 md:h-96 lg:h-[600px] rounded-lg overflow-hidden">
           <Image
             src={desktopImage}
             alt={product.name}
@@ -50,14 +50,18 @@ export default async function ProductPage({
             className="object-cover"
           />
         </div>
-        <div className="w-1/2">
-          {product.new && (
+            <div className="w-full lg:w-1/2">
+            {product.new && (
             <h1 className="text-lg uppercase tracking-widest mb-8 text-secondary">
               New Product
             </h1>
           )}
-          <h2 className="text-5xl font-bold mb-8 uppercase">{product.name}</h2>
-          <p className="mb-8 max-w-md">{product.description}</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-8 uppercase">
+            {product.name}
+          </h2>
+          <p className="mb-8 lg:mb-16 max-w-md mx-auto lg:mx-0 ">
+            {product.description}
+          </p>
           <p className="text-2xl font-bold mb-8">
             $ {product.price.toLocaleString()}
           </p>
@@ -66,14 +70,14 @@ export default async function ProductPage({
         </div>
       </div>
 
-      <div className="flex justify-between mt-32 gap-16">
-        <div className="w-2/3">
+      <div className="flex flex-col lg:flex-row justify-between mt-32 gap-16">
+        <div className="w-full lg:w-2/3">
           <h3 className="text-4xl font-bold uppercase mb-8">Features</h3>
           <p className="text-gray-500 whitespace-pre-line">
             {product.features}
           </p>
         </div>
-        <div className="w-1/3">
+        <div className="w-full lg:w-1/3">
           <h3 className="text-4xl font-bold uppercase mb-8">In the box</h3>
           <ul>
             {product.includes.map((item, index) => (
@@ -88,9 +92,9 @@ export default async function ProductPage({
         </div>
       </div>
 
-      <div className="grid grid-cols-5 gap-8 mt-32">
-        <div className="col-span-2 space-y-8">
-          <div className="relative h-[280px] rounded-lg overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mt-32">
+        <div className="col-span-1 lg:col-span-2 space-y-8">
+          <div className="relative h-80 md:h-96 lg:h-[280px] rounded-lg overflow-hidden">
             <Image
               src={product.gallery.first.desktop.replace("./", "/")}
               alt={`${product.name} gallery image 1`}
@@ -98,7 +102,7 @@ export default async function ProductPage({
               className="object-cover"
             />
           </div>
-          <div className="relative h-[280px] rounded-lg overflow-hidden">
+          <div className="relative h-80 md:h-96 lg:h-[280px] rounded-lg overflow-hidden">
             <Image
               src={product.gallery.second.desktop.replace("./", "/")}
               alt={`${product.name} gallery image 2`}
@@ -107,7 +111,7 @@ export default async function ProductPage({
             />
           </div>
         </div>
-        <div className="col-span-3 relative h-full rounded-lg overflow-hidden">
+        <div className="relative col-span-1 lg:col-span-3 h-[520px] md:h-full lg:h-full rounded-lg overflow-hidden">
           <Image
             src={product.gallery.third.desktop.replace("./", "/")}
             alt={`${product.name} gallery image 3`}
@@ -118,16 +122,16 @@ export default async function ProductPage({
       </div>
 
       <div className="mt-32 text-center">
-        <h3 className="text-4xl font-bold uppercase mb-16">
+        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase mb-16">
           You May Also Like
         </h3>
-        <div className="flex justify-between items-center gap-8">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
           {product.others.map((other, index) => (
             <div
               key={index}
-              className="flex flex-col items-center gap-8 w-4/12"
+              className="flex flex-col items-center gap-8 w-full lg:w-4/12"
             >
-              <div className="relative w-full h-[320px] rounded-lg overflow-hidden">
+              <div className="relative w-full h-80 md:h-96 lg:h-[320px] rounded-lg overflow-hidden">
                 <Image
                   src={other.image.desktop.replace("./", "/")}
                   alt={other.name}

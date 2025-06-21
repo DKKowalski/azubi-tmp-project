@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const FeaturedProductZX9 = () => {
   return (
-    <section className="max-w-screen-xl mx-auto bg-secondary rounded-lg text-white mt-32 overflow-hidden bg-[url('/assets/home/desktop/pattern-circles.svg')] bg-no-repeat bg-cover lg:bg-auto">
+    <section className="max-w-screen-xl md:mx-auto bg-secondary rounded-lg text-white mt-32 overflow-hidden bg-[url('/assets/home/desktop/pattern-circles.svg')] bg-no-repeat bg-cover lg:bg-auto mx-4">
       <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-around p-8 lg:p-0 lg:pt-24 gap-8 lg:gap-36 text-center lg:text-left">
-        <div className="relative w-1/2 lg:w-1/3 flex justify-center lg:self-end">
+        <div className="relative w-full md:w-1/2 lg:w-1/3 flex justify-center lg:self-end">
           <picture>
             <source
               media="(min-width: 1024px)"
@@ -41,4 +41,4 @@ const FeaturedProductZX9 = () => {
   );
 };
 
-export default FeaturedProductZX9; 
+export default FeaturedProductZX9;

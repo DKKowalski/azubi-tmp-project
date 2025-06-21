@@ -22,7 +22,7 @@ export default function ThankYouModal({ onClose }: ThankYouModalProps) {
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-6">
       <div
-        className="bg-white p-12 rounded-lg shadow-lg w-full max-w-lg"
+        className="bg-white p-4 lg:p-12 rounded-lg shadow-lg w-full max-w-lg flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         <Image
@@ -40,8 +40,8 @@ export default function ThankYouModal({ onClose }: ThankYouModalProps) {
         <p className="text-gray-500 mb-8">
           You will receive an email confirmation shortly.
         </p>
-        <div className="flex bg-gray-100 rounded-lg overflow-hidden mb-8">
-          <div className="p-6 w-2/3">
+        <div className="flex flex-col lg:flex-row bg-gray-100 rounded-lg overflow-hidden mb-8 w-full">
+          <div className="p-6 w-full lg:w-2/3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="relative w-12 h-12 rounded-md overflow-hidden">
@@ -72,7 +72,7 @@ export default function ThankYouModal({ onClose }: ThankYouModalProps) {
               </p>
             )}
           </div>
-          <div className="bg-black text-white p-6 w-1/3 flex flex-col justify-center">
+          <div className="bg-black text-white p-6 w-full lg:w-1/3 flex flex-col justify-center">
             <p className="text-gray-400 uppercase text-sm mb-2">Grand Total</p>
             <p className="text-xl font-bold">$ {grandTotal.toLocaleString()}</p>
           </div>
@@ -80,7 +80,7 @@ export default function ThankYouModal({ onClose }: ThankYouModalProps) {
         <Link
           href="/"
           onClick={onClose}
-          className="block w-full text-center uppercase font-bold text-sm tracking-widest bg-secondary px-8 py-4 text-white"
+          className="block w-full text-center uppercase font-bold text-sm tracking-widest bg-secondary px-8 py-4 text-white hover:bg-[#FBAF85] transition-colors duration-300 cursor-pointer"
         >
           Back to Home
         </Link>

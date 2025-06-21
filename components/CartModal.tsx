@@ -35,7 +35,7 @@ export default function CartModal({ onClose }: CartModalProps) {
               </h1>
               <button
                 onClick={clearCart}
-                className="text-gray-500 underline hover:text-secondary"
+                className="text-gray-500 underline hover:text-secondary transition-colors duration-300 cursor-pointer"
               >
                 Remove all
               </button>
@@ -70,14 +70,14 @@ export default function CartModal({ onClose }: CartModalProps) {
                   <div className="flex items-center bg-gray-100">
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className="px-4 py-2 hover:bg-gray-200"
+                      className="px-4 py-2 hover:bg-gray-200 cursor-pointer hover:text-secondary transition-colors duration-300"
                     >
                       -
                     </button>
                     <span className="px-4">{item.quantity}</span>
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className="px-4 py-2 hover:bg-gray-200"
+                      className="px-4 py-2 hover:bg-gray-200 cursor-pointer hover:text-secondary transition-colors duration-300"
                     >
                       +
                     </button>
@@ -92,7 +92,7 @@ export default function CartModal({ onClose }: CartModalProps) {
             <Link
               href="/checkout"
               onClick={onClose}
-              className="block w-full mt-8 text-center uppercase font-bold text-sm tracking-widest bg-secondary px-8 py-3 text-white"
+              className="block w-full mt-8 text-center uppercase font-bold text-sm tracking-widest bg-secondary px-8 py-3 text-white hover:bg-[#FBAF85] transition-colors duration-300 cursor-pointer"
             >
               Checkout
             </Link>

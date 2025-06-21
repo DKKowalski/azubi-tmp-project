@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const FeaturedProductZX7 = () => {
   return (
-    <section className="relative max-w-screen-xl mx-auto h-[320px] mt-12 rounded-lg overflow-hidden">
+    <section className="relative max-w-screen-xl mx-4 md:mx-auto h-[320px] mt-12 rounded-lg overflow-hidden">
       <div className="absolute inset-0 z-0">
         <picture>
           <source

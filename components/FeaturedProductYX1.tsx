@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const FeaturedProductYX1 = () => {
   return (
-    <section className="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-6 mt-12">
+    <section className="max-w-screen-xl mx-4 md:mx-auto flex flex-col md:flex-row gap-6 mt-12">
       <div className="w-full md:w-1/2 rounded-lg overflow-hidden h-52 md:h-80">
         <picture className="w-full h-full">
           <source
@@ -25,7 +25,7 @@ const FeaturedProductYX1 = () => {
           YX1 Earphones
         </h2>
         <Link
-          className="uppercase font-bold text-sm tracking-widest border border-black px-8 py-4 text-black hover:bg-black hover:text-white"
+          className="uppercase font-bold text-sm tracking-widest border border-black px-8 py-4 text-black hover:bg-black hover:text-white transition-colors duration-300"
           href="/product/yx1-earphones"
         >
           See Product

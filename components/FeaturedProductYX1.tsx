@@ -1,23 +1,31 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const FeaturedProductYX1 = () => {
   return (
-    <section className="max-w-screen-xl mx-auto flex flex-row gap-4 h-[320px] mt-16">
-      <div className="relative w-1/2 rounded-lg overflow-hidden">
-        <Image
-          src="/assets/home/desktop/image-earphones-yx1.jpg"
-          alt="earphones"
-          fill
-          className="object-cover"
-        />
+    <section className="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-6 mt-12">
+      <div className="w-full md:w-1/2 rounded-lg overflow-hidden h-52 md:h-80">
+        <picture className="w-full h-full">
+          <source
+            media="(min-width: 1024px)"
+            srcSet="/assets/home/desktop/image-earphones-yx1.jpg"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcSet="/assets/home/tablet/image-earphones-yx1.jpg"
+          />
+          <img
+            src="/assets/home/mobile/image-earphones-yx1.jpg"
+            alt="YX1 Earphones"
+            className="w-full h-full object-cover"
+          />
+        </picture>
       </div>
-      <div className="w-1/2 bg-[#f1f1f1] rounded-lg p-16 space-y-8 flex flex-col items-start justify-center">
-        <h2 className="text-4xl font-bold uppercase tracking-widest">
+      <div className="w-full md:w-1/2 bg-light-gray rounded-lg p-6 md:p-12 lg:p-24 flex flex-col items-start justify-center h-52 md:h-80">
+        <h2 className="text-3xl font-bold uppercase tracking-widest mb-8">
           YX1 Earphones
         </h2>
         <Link
-          className="uppercase font-bold text-sm tracking-widest border border-[#0e0e0e] px-4 py-3 text-[#0e0e0e]"
+          className="uppercase font-bold text-sm tracking-widest border border-black px-8 py-4 text-black hover:bg-black hover:text-white"
           href="/product/yx1-earphones"
         >
           See Product

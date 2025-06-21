@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Earphones() {
+export default function Cart() {
   return (
     <div>
-      <h1>Headphones</h1>
+      <h1>Cart</h1>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Product } from "@/types";
+import AddToCart from "@/components/AddToCart";
 
 export default async function ProductPage({
   params,
@@ -61,19 +62,7 @@ export default async function ProductPage({
             $ {product.price.toLocaleString()}
           </p>
 
-          <div className="flex items-center gap-4">
-            <div className="flex items-center bg-gray-100">
-              <button className="px-4 py-3">-</button>
-              <span className="px-4 py-3">1</span>
-              <button className="px-4 py-3">+</button>
-            </div>
-            <Link
-              className="uppercase font-bold text-sm tracking-widest bg-secondary px-8 py-3 text-white"
-              href="#"
-            >
-              Add to Cart
-            </Link>
-          </div>
+          <AddToCart product={product} />
         </div>
       </div>
 
@@ -134,7 +123,10 @@ export default async function ProductPage({
         </h3>
         <div className="flex justify-between items-center gap-8">
           {product.others.map((other, index) => (
-            <div key={index} className="flex flex-col items-center gap-8 w-4/12">
+            <div
+              key={index}
+              className="flex flex-col items-center gap-8 w-4/12"
+            >
               <div className="relative w-full h-[320px] rounded-lg overflow-hidden">
                 <Image
                   src={other.image.desktop.replace("./", "/")}

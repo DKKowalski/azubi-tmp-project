@@ -6,44 +6,39 @@ import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ThankYouModal from "@/components/ThankYouModal";
-
-const cartItems = [
-  {
-    name: "XX99 MK II",
-    price: 2999,
-    quantity: 1,
-    image: "/assets/cart/image-xx99-mark-two-headphones.jpg",
-  },
-  {
-    name: "XX59",
-    price: 899,
-    quantity: 2,
-    image: "/assets/cart/image-xx59-headphones.jpg",
-  },
-  {
-    name: "YX1",
-    price: 599,
-    quantity: 1,
-    image: "/assets/cart/image-yx1-earphones.jpg",
-  },
-];
+import { useCart } from "@/context/CartContext";
+import CheckoutSummary from "@/components/CheckoutSummary";
 
 export default function CheckoutPage() {
   const [paymentMethod, setPaymentMethod] = useState("eMoney");
   const [isThankYouModalOpen, setIsThankYouModalOpen] = useState(false);
-
-  const subtotal = cartItems.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
-  const shipping = 50;
-  const vat = subtotal * 0.2;
-  const grandTotal = subtotal + shipping;
+  const { cartItems, clearCart } = useCart();
 
   const handleCheckout = (event: React.FormEvent) => {
     event.preventDefault();
     setIsThankYouModalOpen(true);
   };
+
+  if (cartItems.length === 0 && !isThankYouModalOpen) {
+    return (
+      <div className="flex flex-col min-h-screen">
+        <header className="bg-[#0e0e0e] px-4 pt-8">
+          <div className="max-w-screen-xl mx-auto">
+            <Navbar />
+          </div>
+        </header>
+        <main className="flex-grow flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold mb-8">Your cart is empty</h1>
+            <Link href="/" className="text-secondary underline">
+              Go back to shopping
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -216,62 +211,7 @@ export default function CheckoutPage() {
                 </div>
               </form>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg w-1/3">
-              <h2 className="text-xl font-bold uppercase mb-8">Summary</h2>
-              <div className="space-y-4">
-                {cartItems.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="relative w-16 h-16 rounded-lg overflow-hidden">
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div>
-                        <h3 className="font-bold">{item.name}</h3>
-                        <p className="text-gray-500">
-                          $ {item.price.toLocaleString()}
-                        </p>
-                      </div>
-                    </div>
-                    <p className="font-bold text-gray-500">x{item.quantity}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="space-y-2 mt-8">
-                <div className="flex justify-between">
-                  <p className="text-gray-500 uppercase">Total</p>
-                  <p className="font-bold">$ {subtotal.toLocaleString()}</p>
-                </div>
-                <div className="flex justify-between">
-                  <p className="text-gray-500 uppercase">Shipping</p>
-                  <p className="font-bold">$ {shipping.toLocaleString()}</p>
-                </div>
-                <div className="flex justify-between">
-                  <p className="text-gray-500 uppercase">VAT (Included)</p>
-                  <p className="font-bold">$ {vat.toLocaleString()}</p>
-                </div>
-              </div>
-              <div className="flex justify-between mt-4">
-                <p className="text-gray-500 uppercase">Grand Total</p>
-                <p className="font-bold text-secondary">
-                  $ {grandTotal.toLocaleString()}
-                </p>
-              </div>
-              <button
-                type="submit"
-                form="checkout-form"
-                className="block w-full mt-8 text-center uppercase font-bold text-sm tracking-widest bg-secondary px-8 py-3 text-white cursor-pointer"
-              >
-                Continue & Pay
-              </button>
-            </div>
+            <CheckoutSummary />
           </div>
         </div>
       </div>
@@ -280,7 +220,12 @@ export default function CheckoutPage() {
         <Footer />
       </footer>
       {isThankYouModalOpen && (
-        <ThankYouModal onClose={() => setIsThankYouModalOpen(false)} />
+        <ThankYouModal
+          onClose={() => {
+            setIsThankYouModalOpen(false);
+            clearCart();
+          }}
+        />
       )}
     </>
   );

@@ -2,31 +2,22 @@
 
 import Link from "next/link";
 import Image from "next/image";
-
-const cartItems = [
-  {
-    name: "XX99 MK II",
-    price: 2999,
-    quantity: 1,
-    image: "/assets/cart/image-xx99-mark-two-headphones.jpg",
-  },
-  {
-    name: "XX59",
-    price: 899,
-    quantity: 2,
-    image: "/assets/cart/image-xx59-headphones.jpg",
-  },
-];
+import { useCart } from "@/context/CartContext";
 
 interface ThankYouModalProps {
   onClose: () => void;
 }
 
 export default function ThankYouModal({ onClose }: ThankYouModalProps) {
+  const { cartItems } = useCart();
   const grandTotal =
     cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0) + 50; // Including shipping
 
   const firstItem = cartItems[0];
+
+  if (!firstItem) {
+    return null; // Don't render modal if cart is empty
+  }
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-6">
@@ -55,14 +46,19 @@ export default function ThankYouModal({ onClose }: ThankYouModalProps) {
               <div className="flex items-center gap-4">
                 <div className="relative w-12 h-12 rounded-md overflow-hidden">
                   <Image
-                    src={firstItem.image}
+                    src={firstItem.image.desktop.replace("./", "/")}
                     alt={firstItem.name}
                     fill
                     className="object-cover"
                   />
                 </div>
                 <div>
-                  <h2 className="font-bold">{firstItem.name}</h2>
+                  <h2 className="font-bold">
+                    {firstItem.name
+                      .replace(" Headphones", "")
+                      .replace(" Wireless Earphones", "")
+                      .replace(" Speaker", "")}
+                  </h2>
                   <p className="text-gray-500">
                     $ {firstItem.price.toLocaleString()}
                   </p>
@@ -76,7 +72,7 @@ export default function ThankYouModal({ onClose }: ThankYouModalProps) {
               </p>
             )}
           </div>
-          <div className="bg-black text-white p-6 w-1/3">
+          <div className="bg-black text-white p-6 w-1/3 flex flex-col justify-center">
             <p className="text-gray-400 uppercase text-sm mb-2">Grand Total</p>
             <p className="text-xl font-bold">$ {grandTotal.toLocaleString()}</p>
           </div>

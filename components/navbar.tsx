@@ -4,9 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import CartModal from "./CartModal";
+import { useCart } from "@/context/CartContext";
 
 const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const { totalCartItems } = useCart();
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
@@ -62,6 +64,11 @@ const Navbar = () => {
             width={24}
             height={24}
           />
+          {totalCartItems > 0 && (
+            <span className="absolute -top-2 -right-2 bg-secondary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+              {totalCartItems}
+            </span>
+          )}
         </button>
       </nav>
       {isCartOpen && <CartModal onClose={toggleCart} />}

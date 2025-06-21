@@ -27,7 +27,7 @@ const Footer = () => {
             <li>
               <Link
                 className="uppercase font-bold text-sm tracking-widest hover:text-secondary"
-                href="/"
+                href="/headphones"
               >
                 Headphones
               </Link>
@@ -35,7 +35,7 @@ const Footer = () => {
             <li>
               <Link
                 className="uppercase font-bold text-sm tracking-widest hover:text-secondary"
-                href="/"
+                href="/speakers"
               >
                 Speakers
               </Link>
@@ -43,7 +43,7 @@ const Footer = () => {
             <li>
               <Link
                 className="uppercase font-bold text-sm tracking-widest hover:text-secondary"
-                href="/"
+                href="/earphones"
               >
                 Earphones
               </Link>

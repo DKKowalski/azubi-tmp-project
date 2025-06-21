@@ -14,7 +14,6 @@ export default function Home() {
       <header className="bg-[#0e0e0e] py-8 px-6">
         <div className="max-w-screen-xl mx-auto">
           <Navbar />
-          <div className="h-[1px] w-full bg-[#979797] mt-10"></div>
 
           <div className="flex flex-col gap-4 max-w-screen-xl mx-auto text-white md:flex-row pt-8 items-center justify-center ">
             <div className="w-1/2">

@@ -3,14 +3,14 @@ import Image from "next/image";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between items-center text-white ">
+    <nav className="flex justify-between items-center text-white border-b border-white/10 pb-8">
       <Image
         src="/assets/shared/desktop/logo.svg"
         alt="logo"
         width={143}
         height={25}
       />
-      <ul className="flex gap-4">
+      <ul className="flex gap-8">
         <li>
           <Link
             className="uppercase font-bold text-sm tracking-widest"

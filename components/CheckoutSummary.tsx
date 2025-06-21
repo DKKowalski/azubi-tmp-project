@@ -15,7 +15,7 @@ export default function CheckoutSummary() {
   const grandTotal = subtotal + shipping;
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-lg w-full lg:w-1/3">
+    <div className="bg-white p-8 rounded-lg shadow-lg w-full ">
       <h2 className="text-xl font-bold uppercase mb-8">Summary</h2>
       <div className="space-y-4">
         {cartItems.map((item) => (

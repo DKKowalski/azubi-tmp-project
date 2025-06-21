@@ -16,7 +16,7 @@ export default function Home() {
           <Navbar />
 
           <div className="relative flex flex-col max-w-screen-xl mx-auto text-white lg:flex-row pt-8 border-t border-white/10">
-            <div className="w-full lg:w-1/2 absolute top-1/2 -translate-y-1/2 left-0 lg:relative z-10 flex flex-col items-center lg:items-start justify-center text-center lg:text-left px-4 lg:px-0">
+            <div className="w-full lg:w-1/2 absolute top-1/2 -translate-y-1/2 left-0 lg:relative lg:top-0 lg:translate-y-0 z-10 flex flex-col items-center lg:items-start justify-center text-center lg:text-left px-4 lg:px-0">
               <h1 className="text-sm md:text-lg uppercase tracking-widest mb-4 md:mb-8 text-secondary">
                 New Product
               </h1>
@@ -34,7 +34,7 @@ export default function Home() {
                 See Product
               </Link>
             </div>
-            <div className="relative w-full md:w-1/2 h-[400px] md:h-[600px] ">
+            <div className="relative w-full lg:w-1/2 h-[400px] md:h-[600px] ">
               <Image
                 src="/assets/home/desktop/image-hero.png"
                 alt="hero"
